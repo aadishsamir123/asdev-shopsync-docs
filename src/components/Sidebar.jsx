@@ -19,7 +19,7 @@ function Sidebar() {
     'listopt': {
       icon: 'fas fa-cog',
       title: 'List Options',
-      pages: ['Share List', 'Export List', 'Rename list(Owner-Only)', 'Delete List(Owner-Only)']
+      pages: ['Share List', 'Export List', 'Rename List', 'Delete List']
     }
   };
 
