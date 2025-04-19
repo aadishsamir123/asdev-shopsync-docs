@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from '../styles/Sidebar.module.css'
 
 function Sidebar() {
   const [expandedCategories, setExpandedCategories] = useState({});
@@ -10,15 +11,15 @@ function Sidebar() {
       title: 'Authentication',
       pages: ['Login', 'Sign Up', 'Forgot Password']
     },
-    'home': {
+    'main': {
       icon: 'fas fa-home',
       title: 'Home Page',
       pages: ['New Users', 'Users with lists', 'App Menu']
     },
-    'configuration': {
+    'listopt': {
       icon: 'fas fa-cog',
-      title: 'Configuration',
-      pages: ['Basic Settings', 'Advanced Options', 'Environment Setup']
+      title: 'List Options',
+      pages: ['Share List', 'Export List', 'Rename list(Owner-Only)', 'Delete List(Owner-Only)']
     }
   };
 
@@ -30,26 +31,27 @@ function Sidebar() {
   };
 
   return (
-    <div className="bg-light border-end vh-100 p-3" style={{ width: '250px' }}>
-      <ul className="nav flex-column">
+    <div className={styles.sidebar}>
+      <ul className={styles.navList}>
         {Object.entries(categories).map(([key, category]) => (
-          <li key={key} className="nav-item mb-2">
+          <li key={key} className={styles.navItem}>
             <div
-              className="nav-link d-flex align-items-center cursor-pointer"
+              className={`${styles.categoryHeader} ${expandedCategories[key] ? styles.expanded : ''}`}
               onClick={() => toggleCategory(key)}
-              style={{ cursor: 'pointer' }}
             >
-              <i className={`${category.icon} me-2`}></i>
-              {category.title}
-              <i className={`fas fa-chevron-${expandedCategories[key] ? 'down' : 'right'} ms-auto`}></i>
+              <span className={styles.categoryIcon}>
+                <i className={category.icon}></i>
+              </span>
+              <span className={styles.categoryTitle}>{category.title}</span>
+              <i className={`fas fa-chevron-${expandedCategories[key] ? 'down' : 'right'} ${styles.arrow}`}></i>
             </div>
             {expandedCategories[key] && (
-              <ul className="nav flex-column ms-3 mt-1">
+              <ul className={styles.subMenu}>
                 {category.pages.map((page) => (
-                  <li key={page} className="nav-item">
+                  <li key={page} className={styles.subMenuItem}>
                     <Link
                       to={`/category/${key}/${page.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="nav-link py-1"
+                      className={styles.subMenuLink}
                     >
                       {page}
                     </Link>

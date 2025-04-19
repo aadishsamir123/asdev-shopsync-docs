@@ -1,0 +1,45 @@
+/* src/styles/Documentation.module.css */
+.docTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #3498db;
+}
+
+.docSection {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #34495e;
+  margin: 2rem 0 1rem;
+}
+
+.docSubsection {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #455a64;
+  margin: 1.5rem 0 1rem;
+}
+
+.docText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #546e7a;
+  margin-bottom: 1rem;
+}
+
+.docImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
+}
+
+.docImageCaption {
+  font-size: 0.9rem;
+  color: #78909c;
+  text-align: center;
+  margin-top: 0.5rem;
+}
